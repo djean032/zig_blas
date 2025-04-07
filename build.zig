@@ -16,8 +16,8 @@ pub fn build(b: *std.Build) void {
     });
 
     exe.addIncludePath(b.path("src"));
-    exe.addIncludePath(b.path("../../source/OpenBLAS-0.3.29/"));
-    exe.addLibraryPath(b.path("../../source/OpenBLAS-0.3.29/"));
+    exe.addIncludePath(b.path("../../source/OpenBLAS-0.3.29_x86/include/"));
+    exe.addLibraryPath(b.path("../../source/OpenBLAS-0.3.29_x86/lib/"));
 
     exe.linkLibC();
     exe.linkSystemLibrary("openblas");
