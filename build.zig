@@ -15,10 +15,8 @@ pub fn build(b: *std.Build) void {
         .root_module = exe_mod,
     });
 
-    exe.addIncludePath(b.path("src"));
-    exe.addIncludePath(b.path("../../../../Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/"));
-    exe.addIncludePath(b.path("../../source/OpenBLAS-0.3.29/"));
-    exe.addLibraryPath(b.path("../../source/OpenBLAS-0.3.29/"));
+    exe.addIncludePath(b.path("src/include/"));
+    exe.addLibraryPath(b.path("lib/"));
 
     exe.linkLibC();
     exe.linkSystemLibrary("openblas");

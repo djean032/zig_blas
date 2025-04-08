@@ -1,6 +1,6 @@
 const std = @import("std");
 const c = @cImport({
-    @cInclude("./include/cblas.h");
+    @cInclude("cblas.h");
 });
 
 const BlasError = error{
