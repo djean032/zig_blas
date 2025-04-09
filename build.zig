@@ -15,11 +15,8 @@ pub fn build(b: *std.Build) void {
         .root_module = exe_mod,
     });
 
-    exe.addIncludePath(b.path("src/include/"));
-    exe.addLibraryPath(b.path("lib/"));
-
-    exe.linkLibC();
-    exe.linkSystemLibrary("openblas");
+    exe.addIncludePath(b.path("../../../../Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Accelerate.framework/Headers/"));
+    exe.linkFramework("Accelerate");
 
     b.installArtifact(exe);
 

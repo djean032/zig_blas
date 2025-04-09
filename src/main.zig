@@ -2,9 +2,16 @@ const std = @import("std");
 const blas = @import("blas.zig");
 
 pub fn main() !void {
-    const comp_val = std.math.complex.Complex(f32).init(1,1);
-    var data_x = [_]std.math.complex.Complex(f32){comp_val, comp_val};
-    var data_y = [_]std.math.complex.Complex(f32){comp_val, comp_val};
-    const dp = try blas.dot(std.math.complex.Complex(f32), &data_x, &data_y, .{});
-    std.debug.print("{d}\n", .{dp});
+    var data_x = [_]blas.Complex{ 
+        .{.re = 1.0, .im = 1.0}, 
+        .{.re = 1.0, .im = 1.0}, 
+        .{.re = 1.0, .im = 1.0}, 
+    };
+    var data_y = [_]blas.Complex{ 
+        .{.re = 1.0, .im = 1.0}, 
+        .{.re = 1.0, .im = 1.0}, 
+        .{.re = 1.0, .im = 1.0}, 
+    };
+    const dp = try blas.dot_complex(blas.Complex, &data_x, &data_y, .{});
+    std.debug.print("{any}\n", .{dp});
 }
